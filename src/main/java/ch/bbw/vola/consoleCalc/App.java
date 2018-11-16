@@ -12,5 +12,9 @@ public class App {
 
 		System.out.println("Calculate: "+value1+" + "+value2+" = "+c.summe(value1, value2));
 		System.out.println("Calculate: "+value3+" + "+value4+" = "+c.summe(value3, value4));
+		
+
+		System.out.println("Calculate: "+value1+" - "+value2+" = "+c.differenz(value1, value2));
+		System.out.println("Calculate: "+value3+" - "+value4+" = "+c.differenz(value3, value4));
 	}
 }
