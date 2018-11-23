@@ -17,15 +17,39 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void testAddition() {
+	public void testAddition123() {
 		assertTrue("Test: summe(1,2) == 3 failed", testee.summe(1, 2) == 3);
+	}
+
+	@Test
+	public void testAddition12N1N() {
 		assertTrue("Test: summe(1,-2) == -1 failed", testee.summe(1, -2) == -1);
+	}
+
+	@Test
+	public void testAdition1N2N3N() {
 		assertTrue("Test: summe(-1,-2) == -3 failed", testee.summe(-1, -2) == -3);
+	}
+
+	@Test
+	public void testAditionDoubleSimple() {
 		assertTrue("Test: summe(1.1294,2.344) == 3.4734 failed", testee.summe(1.1294, 2.344) == 3.4734);
-		assertEquals("Test: summe(2.141, 1.1278) ==  3.2688 failed", testee.summe(2.141, 1.1278), 3.2688,0.000000000001);
+	}
+
+	@Test
+	public void testAditionDoubleComplicated() {
+		assertEquals("Test: summe(2.141, 1.1278) ==  3.2688 failed", testee.summe(2.141, 1.1278), 3.2688,
+				0.000000000001);
+	}
+
+	@Test
+	public void testAditionMaxValue2() {
 		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MAX_VALUE)==Integer.MAX_VALUE * 2 failed",
 				testee.summe(Integer.MAX_VALUE, Integer.MAX_VALUE) == Integer.MAX_VALUE * 2);
-		System.out.println( Integer.MAX_VALUE * 2);
+	}
+
+	@Test
+	public void testAditionMaxValueMinValue() {
 		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MIN_VALUE)==-1 failed",
 				testee.summe(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
 	}
