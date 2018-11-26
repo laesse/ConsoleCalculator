@@ -53,15 +53,17 @@ public class CalculatorTest {
 		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MIN_VALUE)==-1 failed",
 				testee.summe(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
 	}
-	
+
 	@Test
 	public void testDifferenz121N() {
 		assertTrue("Test: differenz(1,2) == -1 failed", testee.differenz(1, 2) == -1);
 	}
+
 	@Test
 	public void testDifferenz211() {
 		assertTrue("Test: differenz(2,1) == 1 failed", testee.differenz(2, 1) == 1);
 	}
+
 	@Test
 	public void testDifferenz12N3() {
 		assertTrue("Test: differenz(1,-2) == 3 failed", testee.differenz(1, -2) == 3);
@@ -73,20 +75,20 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void testDifferenzDoubleSimple() {
-		assertTrue("Test: differenz(5.214, 3654) == 1.56 failed", testee.differenz(5.214, 3654) == 1.56);
+	public void testDifferenzDoubleComplicated() {
+		assertEquals("Test: differenz(5.214, 3.654) == 1.56 failed", testee.differenz(5.214, 3.654), 1.56,
+				0.0000000001);
 	}
 
 	@Test
-	public void testDifferenzDoubleComplicated() {
-		assertEquals("Test: differenz(1.58, 8.35789) == -6.77769 failed", testee.differenz(1.58, 8.35789), -6.77769,
-				0.000000000001);
+	public void testDifferenzDoubleSimple() {
+		assertTrue("Test: differenz(1.58, 8.35789) == -6.77769 failed", testee.differenz(1.5, 8.5) == -7.0);
 	}
 
 	@Test
 	public void testDifferenzMaxValue2() {
 		assertTrue("Test: differenz(Integer.MAX_VALUE,Integer.MAX_VALUE)== 0 failed",
-				testee.differenz(Integer.MAX_VALUE, Integer.MAX_VALUE) == Integer.MAX_VALUE * 2);
+				testee.differenz(Integer.MAX_VALUE, Integer.MAX_VALUE) == 0);
 	}
 
 	@Test
@@ -94,6 +96,5 @@ public class CalculatorTest {
 		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MIN_VALUE)==-1 failed",
 				testee.differenz(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
 	}
-	
 
 }
