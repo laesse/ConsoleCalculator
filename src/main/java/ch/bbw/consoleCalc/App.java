@@ -1,4 +1,4 @@
-package ch.bbw.vola.consoleCalc;
+package ch.bbw.consoleCalc;
 
 public class App {
 	public static void main(String[] args) {

@@ -6,7 +6,7 @@ import org.junit.Before;
 
 import org.junit.Test;
 
-import javafx.beans.binding.IntegerBinding;
+import ch.bbw.consoleCalc.Calculator;
 
 public class CalculatorTest {
 	Calculator testee;
@@ -53,5 +53,47 @@ public class CalculatorTest {
 		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MIN_VALUE)==-1 failed",
 				testee.summe(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
 	}
+	
+	@Test
+	public void testDifferenz121N() {
+		assertTrue("Test: differenz(1,2) == -1 failed", testee.differenz(1, 2) == -1);
+	}
+	@Test
+	public void testDifferenz211() {
+		assertTrue("Test: differenz(2,1) == 1 failed", testee.differenz(2, 1) == 1);
+	}
+	@Test
+	public void testDifferenz12N3() {
+		assertTrue("Test: differenz(1,-2) == 3 failed", testee.differenz(1, -2) == 3);
+	}
+
+	@Test
+	public void testDifferenz1N2N1() {
+		assertTrue("Test: differenz(-1,-2) == 1 failed", testee.differenz(-1, -2) == 1);
+	}
+
+	@Test
+	public void testDifferenzDoubleSimple() {
+		assertTrue("Test: differenz(5.214, 3654) == 1.56 failed", testee.differenz(5.214, 3654) == 1.56);
+	}
+
+	@Test
+	public void testDifferenzDoubleComplicated() {
+		assertEquals("Test: differenz(1.58, 8.35789) == -6.77769 failed", testee.differenz(1.58, 8.35789), -6.77769,
+				0.000000000001);
+	}
+
+	@Test
+	public void testDifferenzMaxValue2() {
+		assertTrue("Test: differenz(Integer.MAX_VALUE,Integer.MAX_VALUE)== 0 failed",
+				testee.differenz(Integer.MAX_VALUE, Integer.MAX_VALUE) == Integer.MAX_VALUE * 2);
+	}
+
+	@Test
+	public void testDifferenzMaxValueMinValue() {
+		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MIN_VALUE)==-1 failed",
+				testee.differenz(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
+	}
+	
 
 }

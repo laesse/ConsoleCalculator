@@ -1,4 +1,4 @@
-package ch.bbw.vola.consoleCalc;
+package ch.bbw.consoleCalc;
 
 public class Calculator {
 	public int summe(int summand1, int summand2) {
