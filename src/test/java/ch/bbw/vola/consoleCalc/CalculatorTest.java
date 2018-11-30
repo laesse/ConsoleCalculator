@@ -96,5 +96,15 @@ public class CalculatorTest {
 		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MIN_VALUE)==-1 failed",
 				testee.differenz(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
 	}
+	
+	@Test
+	public void testDivisionByZero() {
+		assertTrue(testee.quotient(23, 0) == Double.POSITIVE_INFINITY);
+	}
+
+	@Test
+	public void testNegativDivisionByZero() {
+		assertTrue(testee.quotient(-Integer.MAX_VALUE, 0) == Double.POSITIVE_INFINITY);
+	}
 
 }

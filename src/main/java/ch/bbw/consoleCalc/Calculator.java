@@ -16,4 +16,13 @@ public class Calculator {
 	public double differenz(double minuend, double subtrahend) {
 		return minuend - subtrahend;
 	}
+
+	public double quotient(int dividend, int divisor) {
+		return (double) dividend / (double) divisor;
+		// (double) damit division nich nur int zurückgibt was ja kein sinn ergibt
+	}
+
+	public double quotient(double dividend, double divisor) {
+		return dividend / divisor;
+	}
 }
