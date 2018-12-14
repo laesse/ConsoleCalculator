@@ -8,50 +8,12 @@ import org.junit.Test;
 
 import ch.bbw.consoleCalc.Calculator;
 
-public class CalculatorTest {
+public class TestDifferenz {
 	Calculator testee;
 
 	@Before
 	public void setUp() throws Exception {
 		testee = new Calculator();
-	}
-
-	@Test
-	public void testAddition123() {
-		assertTrue("Test: summe(1,2) == 3 failed", testee.summe(1, 2) == 3);
-	}
-
-	@Test
-	public void testAddition12N1N() {
-		assertTrue("Test: summe(1,-2) == -1 failed", testee.summe(1, -2) == -1);
-	}
-
-	@Test
-	public void testAdition1N2N3N() {
-		assertTrue("Test: summe(-1,-2) == -3 failed", testee.summe(-1, -2) == -3);
-	}
-
-	@Test
-	public void testAditionDoubleSimple() {
-		assertTrue("Test: summe(1.1294,2.344) == 3.4734 failed", testee.summe(1.1294, 2.344) == 3.4734);
-	}
-
-	@Test
-	public void testAditionDoubleComplicated() {
-		assertEquals("Test: summe(2.141, 1.1278) ==  3.2688 failed", testee.summe(2.141, 1.1278), 3.2688,
-				0.000000000001);
-	}
-
-	@Test
-	public void testAditionMaxValue2() {
-		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MAX_VALUE)==Integer.MAX_VALUE * 2 failed",
-				testee.summe(Integer.MAX_VALUE, Integer.MAX_VALUE) == Integer.MAX_VALUE * 2);
-	}
-
-	@Test
-	public void testAditionMaxValueMinValue() {
-		assertTrue("Test: summe(Integer.MAX_VALUE,Integer.MIN_VALUE)==-1 failed",
-				testee.summe(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
 	}
 
 	@Test
@@ -97,14 +59,5 @@ public class CalculatorTest {
 				testee.differenz(Integer.MAX_VALUE, Integer.MIN_VALUE) == -1);
 	}
 	
-	@Test
-	public void testDivisionByZero() {
-		assertTrue(testee.quotient(23, 0) == Double.POSITIVE_INFINITY);
-	}
-
-	@Test
-	public void testNegativDivisionByZero() {
-		assertTrue(testee.quotient(-Integer.MAX_VALUE, 0) == Double.POSITIVE_INFINITY);
-	}
 
 }
