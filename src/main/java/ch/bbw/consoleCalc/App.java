@@ -20,6 +20,6 @@ public class App {
 		
 		System.out.println("Calculate: "+value1+" / "+value2+" = "+c.quotient(value1, value2));
 		System.out.println("Calculate: "+value3+" / "+value4+" = "+c.quotient(value3, value4));
-		System.out.println((-2/0.0 ));
+		System.out.println(c.quotient(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY));
 	}
 }
