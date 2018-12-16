@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Categories.ExcludeCategory;
 
 import ch.bbw.consoleCalc.Calculator;
 
