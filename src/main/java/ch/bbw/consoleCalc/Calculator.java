@@ -16,39 +16,52 @@ public class Calculator {
 		} else {
 			return Integer.sum(summand1, summand2);
 		}
-//		return summand1 + summand2;
 	}
 
 	public double summe(double summand1, double summand2) {
-		if (Double.isInfinite(summand1 + summand2)) {
-			System.out.println("hey");
-		}
-		return summand1 + summand2;
+		if (Double.isFinite(summand1 + summand2)) 
+			return summand1 + summand2;
+		else
+			throw new ArithmeticException("summe is infinite");
 	}
 
-	public int differenz(int minuend, int subtrahend) {
-		return minuend - subtrahend;
+	public int differenz(int minuend, int subtrahend) throws ArithmeticException {
+		if (subtrahend == Integer.MIN_VALUE) 
+			throw new ArithmeticException("subtrahend is equals MIN_VALUE");
+		else
+			return summe(minuend,-1*subtrahend);
 	}
 
-	public double differenz(double minuend, double subtrahend) {
-		return minuend - subtrahend;
+	public double differenz(double minuend, double subtrahend)  throws ArithmeticException {
+		if(Double.isFinite(minuend-subtrahend))
+			return minuend - subtrahend;
+		else
+			throw new ArithmeticException("differenz is infinite");
 	}
 
 	public double quotient(int dividend, int divisor) {
 		return quotient((double) dividend, (double) divisor);
-		// (double) damit division nicht nur int zurückgibt was ja kein sinn ergibt
+		// (double) damit division nicht nur int zurückgibt was ja kein sinn ergiebt
 	}
 
 	public double quotient(double dividend, double divisor) {
 		return dividend / divisor;
 	}
-
-	// packetsichtbar && von erbenden klassen sichtbar
-	protected double potenz(double basis, double exponent) {
-		return Math.pow(basis, exponent);
+	
+	public int produkt(int faktor1, int faktor2) {
+		return faktor1 * faktor2;
+	}
+	
+	public double produkt(double faktor1, double faktor2) {
+		return faktor1 * faktor2;
 	}
 
-	public double potenz(int basis, int exponent) {
+	public double potenz(double basis, double exponent) {
+		return Math.pow(basis, exponent);
+	}
+	
+	// packetsichtbar && von erbenden klassen sichtbar
+	protected double potenz(int basis, int exponent) {
 		return potenz((double) basis, (double) exponent);
 	}
 
@@ -85,6 +98,7 @@ public class Calculator {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void nixTun() {
 		// kann nicht getestet werden mit Junit
 	}

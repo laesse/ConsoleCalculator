@@ -35,6 +35,5 @@ public class App {
 		System.out.println("Calculate: Pytagoras c=113, b=112 -> a="+c.satzVonPytagoras(null, 112., 113.));
 		System.out.println("Calculate: Pytagoras c=16.3, b=8.7 -> a="+c.satzVonPytagoras(null, 8.7, 16.3));
 		
-		
 	}
 }
