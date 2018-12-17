@@ -19,39 +19,50 @@ public class Calculator {
 	}
 
 	public double summe(double summand1, double summand2) {
-		if (Double.isFinite(summand1 + summand2)) 
+		if (Double.isFinite(summand1 + summand2))
 			return summand1 + summand2;
 		else
 			throw new ArithmeticException("summe is infinite");
 	}
 
 	public int differenz(int minuend, int subtrahend) throws ArithmeticException {
-		if (subtrahend == Integer.MIN_VALUE) 
+		if (subtrahend == Integer.MIN_VALUE) // weil es für MIN_VALUE (-2147483648) keine positive int-zahl gibt
+												// (MAX_VALUE = 2147483647) sonst die Rechnung aber immer aufgeht...
 			throw new ArithmeticException("subtrahend is equals MIN_VALUE");
 		else
-			return summe(minuend,-1*subtrahend);
+			return summe(minuend, -1 * subtrahend); // dort ist die ganze max < summe > min sache schon gemacht...
 	}
 
-	public double differenz(double minuend, double subtrahend)  throws ArithmeticException {
-		if(Double.isFinite(minuend-subtrahend))
+	public double differenz(double minuend, double subtrahend) throws ArithmeticException {
+		if (Double.isFinite(minuend - subtrahend))
 			return minuend - subtrahend;
 		else
 			throw new ArithmeticException("differenz is infinite");
 	}
 
-	public double quotient(int dividend, int divisor) {
+	public double quotient(int dividend, int divisor) throws ArithmeticException {
 		return quotient((double) dividend, (double) divisor);
 		// (double) damit division nicht nur int zurückgibt was ja kein sinn ergiebt
 	}
 
-	public double quotient(double dividend, double divisor) {
-		return dividend / divisor;
+	public double quotient(double dividend, double divisor) throws ArithmeticException {
+		if (divisor != 0.)
+			return dividend / divisor;
+		else
+			throw new ArithmeticException("division by 0");
 	}
-	
+
 	public int produkt(int faktor1, int faktor2) {
-		return faktor1 * faktor2;
+		long x1 = faktor1, x2 = faktor2;
+		if ((x1 * x2) > (long) Integer.MAX_VALUE) {
+			throw new ArithmeticException("produkt > Integer.MAX_VALUE");
+		} else if ((x1 * x2) < (long) Integer.MIN_VALUE) {
+			throw new ArithmeticException("produkt < Integer.MIN_VALUE");
+		} else {
+			return faktor1 * faktor2;
+		}
 	}
-	
+
 	public double produkt(double faktor1, double faktor2) {
 		return faktor1 * faktor2;
 	}
@@ -59,7 +70,7 @@ public class Calculator {
 	public double potenz(double basis, double exponent) {
 		return Math.pow(basis, exponent);
 	}
-	
+
 	// packetsichtbar && von erbenden klassen sichtbar
 	protected double potenz(int basis, int exponent) {
 		return potenz((double) basis, (double) exponent);
@@ -70,28 +81,28 @@ public class Calculator {
 			throw new ArithmeticException("wurzelexponent is lower then 1");
 		else if (radikant < 0)
 			throw new ArithmeticException("radikant is lower then 0");
-		else 
+		else
 			return potenz(radikant, 1. / wurzelexponent);
 	}
 
 	// packetsichtbar
-	double wurzel(int radikant, int wurzelexponent) {
+	double wurzel(int radikant, int wurzelexponent) throws ArithmeticException {
 		return wurzel((double) radikant, (double) wurzelexponent);
 	}
 
-	public double quadratwurzel(double radikant) {
-		return potenz(radikant, (1. / 2.));
+	public double quadratwurzel(double radikant) throws ArithmeticException {
+		return wurzel(radikant, 2.); // weil dort exeptions schon geworfen werden
 	}
 
 	public Double satzVonPytagoras(Double a, Double b, Double c) {
 		if (c == null && a != null && b != null) {
-			c = quadratwurzel(potenz(a,2) + potenz(b,2));
+			c = quadratwurzel(potenz(a, 2) + potenz(b, 2));
 			return c;
 		} else if (c != null && a == null && b != null) {
-			a = quadratwurzel(potenz(c,2) - potenz(b,2));
+			a = quadratwurzel(potenz(c, 2) - potenz(b, 2));
 			return a;
 		} else if (c != null && a != null && b == null) {
-			b = quadratwurzel(potenz(c,2) - potenz(a,2));
+			b = quadratwurzel(potenz(c, 2) - potenz(a, 2));
 			return b;
 		} else {
 			return null;
@@ -100,7 +111,11 @@ public class Calculator {
 
 	@SuppressWarnings("unused")
 	private void nixTun() {
-		// kann nicht getestet werden mit Junit
+		/*
+		 * kann nicht ohne grösseren Aufwand getestet werden mit Junit man könnte einen
+		 * PrivilegedAccessor oder eine Dp4j to inject reflection brauchen wenn man
+		 * eines Tages das Bedürfnis verspüren sollte diese Methode zu testen
+		 */
 	}
 
 }
