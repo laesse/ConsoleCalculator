@@ -82,4 +82,14 @@ public class TestMultiplikation {
 	 * Double Funktion Testen
 	 */
 
+	@Test public void testPZahltimes1() { assertEquals(testee.produkt(2.67,1),2.67,0.000000001);}
+	@Test public void testN1timesPZahl() { assertEquals(testee.produkt(-1,45.87),-45.87,0.000000001);}
+	@Test public void testPZahltimesPZahl() { assertEquals(testee.produkt(653.56,0),0,0.000000001);}
+	@Test public void test0timesPZahl() { assertEquals(testee.produkt(0,34.09887),0,0.000000001);}
+	@Test public void testPZahltimesNZahl() { assertEquals(testee.produkt(7.0667,-4.6543),-32.89054181,0.000000001);}
+	@Test public void testNZahltimesNZahl() { assertEquals(testee.produkt(-78.765,-313.75),24712.51875,0.000000001);}
+	@Test public void testInfintytimesZahl() { assertEquals(testee.produkt(Double.POSITIVE_INFINITY,56.997),Double.POSITIVE_INFINITY,0.000000001);}
+	@Test public void testInfintytimesNInfinity() { assertEquals(testee.produkt(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY),Double.NEGATIVE_INFINITY,0.000000001);}
+	
+	@Test public void testInfinitytimesN1() { assertEquals(testee.produkt(Double.POSITIVE_INFINITY,-1),Double.NEGATIVE_INFINITY,0.000000001);}
 }
