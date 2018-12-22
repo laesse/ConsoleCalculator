@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ch.bbw.vola.consoleCalc;
+package ch.bbw.consoleCalc;
 
 import static org.junit.Assert.assertTrue;
 
@@ -28,12 +28,12 @@ public class TestDivision {
 	 * integer funktion die Double funktion aufruft 
 	 */
 	
-	@Test
+	@Test(expected=ArithmeticException.class)
 	public void testDivisionByZero() {
 		assertTrue(testee.quotient(23, 0) == Double.POSITIVE_INFINITY);
 	}
 
-	@Test
+	@Test(expected=ArithmeticException.class)
 	public void testNegativDivisionByZero() {
 		assertTrue(testee.quotient(-1563165.12, 0) == Double.NEGATIVE_INFINITY);
 	}

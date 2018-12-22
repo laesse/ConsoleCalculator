@@ -1,4 +1,4 @@
-package ch.bbw.vola.consoleCalc;
+package ch.bbw.consoleCalc;
 
 import static org.junit.Assert.*;
 
