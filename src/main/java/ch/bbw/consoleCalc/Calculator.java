@@ -77,8 +77,8 @@ public class Calculator {
 	}
 
 	public double wurzel(double radikant, double wurzelexponent) throws ArithmeticException {
-		if (wurzelexponent <= 1)
-			throw new ArithmeticException("wurzelexponent is lower then 1");
+		if (wurzelexponent <= 0)
+			throw new ArithmeticException("wurzelexponent is lower or equals 0");
 		else if (radikant < 0)
 			throw new ArithmeticException("radikant is lower then 0");
 		else
@@ -91,21 +91,39 @@ public class Calculator {
 	}
 
 	public double quadratwurzel(double radikant) throws ArithmeticException {
-		return wurzel(radikant, 2.); // weil dort exeptions schon geworfen werden
+		return wurzel(radikant, 2.); // kein exception handling und umweg über wurzel() anstatt direkt über potenz()
+		// weil dort exeptions schon geworfen werden
 	}
 
-	public Double satzVonPytagoras(Double a, Double b, Double c) {
+	public Double satzVonPytagoras(Double a, Double b, Double c) throws ArithmeticException {
 		if (c == null && a != null && b != null) {
-			c = quadratwurzel(potenz(a, 2) + potenz(b, 2));
+			if (a <= 0.0 || b <= 0.0)
+				throw new ArithmeticException("a or b is negative");
+			else
+				c = quadratwurzel(potenz(a, 2) + potenz(b, 2));
 			return c;
 		} else if (c != null && a == null && b != null) {
-			a = quadratwurzel(potenz(c, 2) - potenz(b, 2));
+			if (c <= 0.0 || b <= 0.0)
+				throw new ArithmeticException("c or b is negative");
+			else
+				a = quadratwurzel(potenz(c, 2) - potenz(b, 2));
 			return a;
 		} else if (c != null && a != null && b == null) {
-			b = quadratwurzel(potenz(c, 2) - potenz(a, 2));
+			if (c <= 0.0 || a <= 0.0)
+				throw new ArithmeticException("c or a is negative");
+			else
+				b = quadratwurzel(potenz(c, 2) - potenz(a, 2));
 			return b;
 		} else {
-			return null;
+			if ((c != null && a == null && b == null) || (c == null && a != null && b == null)
+					|| (c == null && a == null && b != null) || (c == null && a == null && b == null)) {
+				throw new ArithmeticException("not enugh parameters given");
+			} else if (c != null && a != null && b != null) {
+				throw new ArithmeticException("to many parameters given");
+			}else {
+				throw new ArithmeticException("wtf what have you done this exeption is inposible");
+			}
+
 		}
 	}
 

@@ -79,5 +79,15 @@ public class TestPotenz {
 	public void test7powNeg5() {
 		assertEquals(testee.potenz(7.54,-5.893), 6.7553936111929667152468207785079e-6, 0.000000000000001);
 	}
+	
+	@Test
+	public void testNAN() {
+		assertEquals(testee.potenz(-23.58, 15.599413), Double.NaN, 0.00000001);
+	}
+
+	@Test
+	public void testNAN2() {
+		assertEquals(testee.potenz(-7.54,-5.00001), Double.NaN, 0.0001);
+	}
 
 }
