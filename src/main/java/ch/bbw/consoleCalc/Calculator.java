@@ -112,7 +112,7 @@ public class Calculator {
 	@SuppressWarnings("unused")
 	private void nixTun() {
 		/*
-		 * kann nicht ohne grösseren Aufwand getestet werden mit Junit man könnte einen
+		 * kann nicht ohne grösseren Aufwand getestet werden mit Junit. man könnte einen
 		 * PrivilegedAccessor oder eine Dp4j to inject reflection brauchen wenn man
 		 * eines Tages das Bedürfnis verspüren sollte diese Methode zu testen
 		 */

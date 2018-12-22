@@ -24,7 +24,8 @@ public class TestPotenz {
 	}
 
 	/*
-	 * Funktion Testen
+	 * Funktion Testen double funktion muss nicht noch 
+	 * mehr getestet werden weil sie ja das selbe ist wie die int Funktion
 	 */
 
 	@Test
