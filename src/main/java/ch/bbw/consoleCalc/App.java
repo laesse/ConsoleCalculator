@@ -16,10 +16,24 @@ public class App {
 
 		System.out.println("Calculate: "+value1+" - "+value2+" = "+c.differenz(value1, value2));
 		System.out.println("Calculate: "+value3+" - "+value4+" = "+c.differenz(value3, value4));
-		
+
 		
 		System.out.println("Calculate: "+value1+" / "+value2+" = "+c.quotient(value1, value2));
 		System.out.println("Calculate: "+value3+" / "+value4+" = "+c.quotient(value3, value4));
-		System.out.println(c.quotient(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY));
+
+		
+		System.out.println("Calculate: "+value1+" ^ "+value1+" = "+c.potenz(value1, value1));
+		System.out.println("Calculate: "+value3+" ^ "+value4+" = "+c.potenz(value3, value4));
+
+		
+		System.out.println("Calculate: "+value1+"te wurzel von "+value1+" = "+c.wurzel(value1, value1));
+		System.out.println("Calculate: "+value3+"te wurzel von "+value4+" = "+c.wurzel(value3, value4));
+
+
+		System.out.println("Calculate: Pytagoras a=3, b=4 -> c="+c.satzVonPytagoras(3., 4., null));
+		System.out.println("Calculate: Pytagoras a=2112, c=2113 -> b="+c.satzVonPytagoras(2112., null, 2113.));
+		System.out.println("Calculate: Pytagoras c=113, b=112 -> a="+c.satzVonPytagoras(null, 112., 113.));
+		System.out.println("Calculate: Pytagoras c=16.3, b=8.7 -> a="+c.satzVonPytagoras(null, 8.7, 16.3));
+		
 	}
 }

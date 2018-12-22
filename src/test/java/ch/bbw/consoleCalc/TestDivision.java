@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ch.bbw.vola.consoleCalc;
+package ch.bbw.consoleCalc;
 
 import static org.junit.Assert.assertTrue;
 
@@ -23,14 +23,19 @@ public class TestDivision {
 	public void setUp() throws Exception {
 		testee = new Calculator();
 	}
-	@Test
+	/*
+	 * Kein unterschied zwischen der Double und der Integer funktion weil die
+	 * integer funktion die Double funktion aufruft 
+	 */
+	
+	@Test(expected=ArithmeticException.class)
 	public void testDivisionByZero() {
 		assertTrue(testee.quotient(23, 0) == Double.POSITIVE_INFINITY);
 	}
 
-	@Test
+	@Test(expected=ArithmeticException.class)
 	public void testNegativDivisionByZero() {
-		assertTrue(testee.quotient(-Integer.MAX_VALUE, 0) == Double.NEGATIVE_INFINITY);
+		assertTrue(testee.quotient(-1563165.12, 0) == Double.NEGATIVE_INFINITY);
 	}
 	
 	@Test
@@ -51,7 +56,6 @@ public class TestDivision {
 	}
 	@Test
 	public void testIvinityDividedByNegativInfinity() {
-		// Test mit equals weil quotient(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY) eine klasse als resultat liefert
 		assertTrue(new Double(testee.quotient(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY)).equals(Double.NaN));
 		
 	}
